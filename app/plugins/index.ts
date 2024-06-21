@@ -22,8 +22,18 @@ export const BUILTIN_PLUGIN_STORE = {
   },
 };
 
+const ALLOWED_PLUGIN_TOOL_NAMES = new Set([
+  "web-search",
+  "calculator",
+  "web-browser",
+  "dalle_image_generator",
+  "stable_diffusion_image_generator",
+]);
+
 export const BUILTIN_PLUGINS: BuiltinPlugin[] = [
   ...CN_PLUGINS,
   ...EN_PLUGINS,
   ...RU_PLUGINS,
-].map((m) => BUILTIN_PLUGIN_STORE.add(m));
+]
+  .filter((m) => ALLOWED_PLUGIN_TOOL_NAMES.has(m.toolName || ""))
+  .map((m) => BUILTIN_PLUGIN_STORE.add(m));
