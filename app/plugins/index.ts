@@ -26,8 +26,9 @@ const ALLOWED_PLUGIN_TOOL_NAMES = new Set([
   "web-search",
   "calculator",
   "web-browser",
+  "WikipediaQueryRun",
   "dalle_image_generator",
-  "stable_diffusion_image_generator",
+  "wolfram_alpha_llm",
 ]);
 
 export const BUILTIN_PLUGINS: BuiltinPlugin[] = [
@@ -36,4 +37,7 @@ export const BUILTIN_PLUGINS: BuiltinPlugin[] = [
   ...RU_PLUGINS,
 ]
   .filter((m) => ALLOWED_PLUGIN_TOOL_NAMES.has(m.toolName || ""))
-  .map((m) => BUILTIN_PLUGIN_STORE.add(m));
+  .map((m) => {
+    m.enable = true;
+    return BUILTIN_PLUGIN_STORE.add(m);
+  });
