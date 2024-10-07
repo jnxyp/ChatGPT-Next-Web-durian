@@ -412,3 +412,10 @@ User: What are the best practices for data security and privacy for our cloud st
 
 The user has uploaded the following files:
 `;
+
+export const MYFILES_BROWSER_TOOLS_SYSTEM_PROMPT_SUFFIX = `
+
+## IMPORTANT NOTE
+ALWAYS USE 'myfiles_browser' TOOL TO SEARCH IN THE UPLOADED FILES FOR ANY OF THE USER'S REQUESTS.
+THE QUERY SHOULD USE THE SAME LANGUAGE IN KEYWORD AS THE UPLOADED DOCUMENT YOU WANT TO SEARCH IN. NOT NECESSARILY THE SAME AS THE USER'S REQUEST.
+`;

@@ -17,6 +17,7 @@ import {
   SUMMARIZE_MODEL,
   GEMINI_SUMMARIZE_MODEL,
   MYFILES_BROWSER_TOOLS_SYSTEM_PROMPT,
+  MYFILES_BROWSER_TOOLS_SYSTEM_PROMPT_SUFFIX,
 } from "../constant";
 import { isDalle3, safeLocalStorage } from "../utils";
 import { getClientApi } from "../client/api";
@@ -591,6 +592,7 @@ partialDocument: \`\`\`
 ${file.partial}
 \`\`\``;
           });
+          template += MYFILES_BROWSER_TOOLS_SYSTEM_PROMPT_SUFFIX;
         }
         systemPrompts = shouldInjectSystemPrompts
           ? [
