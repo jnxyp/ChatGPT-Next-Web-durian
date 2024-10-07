@@ -158,9 +158,9 @@ async function handle(req: NextRequest) {
         },
       );
       partial = splits
-        .slice(0, 2)
         .map((v) => v.pageContent)
-        .join("\n");
+        .join("\n")
+        .slice(0, chunkSize);
     }
     return NextResponse.json(
       {
